@@ -59,7 +59,7 @@ $ nikto -host 10.10.10.14
 ## Nmap
 https://github.com/nmap/nmap
 
-I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! I still remember that red Ubuntu 08.04 CD shipped by canonical. At that point it was the most popular network scanner around, and it still holds that position today. It has many capabilities such as port scanning, service and OS detection, vulnerabilities analysis, and more.
+I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network scanner around, and it still holds that position today. It has many capabilities such as port scanning, service and OS detection, vulnerabilities analysis, and more.
 
 Example:
 ```
