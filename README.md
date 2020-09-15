@@ -90,7 +90,7 @@ Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
 
-Searchsploit is a great tool for finding available exploits for applications and operating systems. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves .
+Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to defend from those attacks.
 
 It's worth mentioning that searchsploit works pretty well with nmap as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are exploits available.
 
@@ -159,7 +159,12 @@ https://github.com/PortSwigger/
 
 Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to make the process of intercepting requests even smoother!
 
-## Bonus: Kali Linux
+## Bonus 1: Metasploit
+https://github.com/rapid7/metasploit-framework
+
+Metasploit is a pentesting framework created by Rapid7. It also has a command line interface called `msfconsole` which is the most common way of using it. The only reason I did not include metasploit in the main list is because it exceeds a bit the limits of this post as it may require a bit more effort to be installed and also it deserves a more detailed explanation.
+
+## Bonus 2: Kali Linux
 https://www.kali.org/
 
 Kali Linux is a pentesting Debian-based GNU/Linux distribution that has all the mentioned tools pre-installed and many, many others!
