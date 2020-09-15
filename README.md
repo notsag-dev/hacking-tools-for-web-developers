@@ -2,7 +2,7 @@
 
 We use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries, all of them open source and up to date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic and use cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords and the user input validations on the front-end and on the back-end as well (of course). We think our applications are rock solid, as secure as they can be. But, are they?
 
-These are five tools you can easily set up and use in order to check the security of your servers and web applications just like a malicious actor would. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine.
+These are five tools you can easily set up and use in order to check the security of your servers and web applications just like a malicious actor or a penetration tester would. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine.
 
 **Warning:** some examples are very intrusive. Be sure to execute them against a local instance of the application or on a test environment.
 
