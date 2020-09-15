@@ -4,7 +4,7 @@ We use cutting-edge web servers, well-known authentication frameworks and robust
 
 These are five tools you can easily set up and use in order to check the security of your servers and web applications just like a malicious actor would. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine.
 
-**Warning:** the examples listed below may be intrusive, so be sure to execute them against a local instance of the application or a test environment.
+**Warning:** some of the examples are very intrusive, so be sure to execute them against a local instance of the application or a test environment.
 
 ## Nikto
 https://github.com/sullo/nikto
