@@ -157,7 +157,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ## Burp suite
 https://github.com/PortSwigger/
 
-Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to turn interception on and off much faster!
+Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after the validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to turn interception on and off much faster!
 
 ## Bonus 1: Metasploit
 https://github.com/rapid7/metasploit-framework
