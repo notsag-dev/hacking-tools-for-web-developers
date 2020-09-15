@@ -4,7 +4,7 @@ We use cutting-edge web servers, well-known authentication frameworks and robust
 
 These are five tools you can easily set up and use in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine, but a URL may be used instead of an IP address.
 
-**Assumptions**: I assume readers have basic command line skills and that are able to install these tools by themselves. It should not represent big issues as I tried to keep examples simple and list tools that can be tested with a one-liner.
+**Assumptions**: I assume readers have basic command line skills and are able to install these tools by themselves. It should not represent big issues as I tried to list easy-to-install tools that can be tested with a one-liner.
 
 **Warning:** Some of the listed examples are very intrusive. Be sure to execute them against a local instance of the application or a test environment.
 
