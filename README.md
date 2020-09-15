@@ -119,7 +119,7 @@ Shellcodes: No Results
 ## Gobuster
 https://github.com/OJ/gobuster
 
-It is important to check all the paths that are accessible through our web application. Sometimes we expose information due to, for example, framework misconfiguration.
+Gobuster is a super fast tool to bruteforce paths of a web application. This is useful for detecting certain interesting files and folders that may lead to information disclosure or, even better, remote code execution. In the example below, the `common.txt` list is a well-known list of paths that can be found in the [SecLists repository](https://github.com/danielmiessler/SecLists).
 
 Example:
 ```
@@ -157,7 +157,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ## Burp suite
 https://github.com/PortSwigger/
 
-Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to make the process of intercepting requests even smoother!
+Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to turn interception on and off much faster!
 
 ## Bonus 1: Metasploit
 https://github.com/rapid7/metasploit-framework
