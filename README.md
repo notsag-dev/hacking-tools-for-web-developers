@@ -11,8 +11,11 @@ https://github.com/sullo/nikto
 
 Nikto is a fantastic web scanner that scans web servers/apps for detecting server misconfiguration or vulnerability to attacks such as cross-site scripting or clickjacking, among many others. It is beginner friendly and that's why it is a great option to get started with. Additionally, the solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses, which may be a sweet quick-win for your team.
 
+Example:
+
 ```
-nikto -host 10.10.10.14
+$ nikto -host 10.10.10.14
+
 - Nikto v2.1.6
 ---------------------------------------------------------------------------
 + Target IP:          10.10.10.14
@@ -58,8 +61,31 @@ https://github.com/nmap/nmap
 
 I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network scanner around, and it still holds that position today. It has many capabilities such as port scanning, service and OS detection, vulnerabilities analysis, and more.
 
-Easy use: nmap -A hostname
-Warning: -A means aggressive scan. For a less intrusive scan use - -script=safe instead. For vulnerability detection, use - -script=vuln (vulnerability detection is very intrusive).
+Example:
+```
+$ nmap -A 10.10.10.14
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-15 00:06 EDT
+Nmap scan report for 10.10.10.14 (10.10.10.14)
+Host is up (0.16s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Microsoft IIS httpd 6.0
+| http-methods: 
+|_  Potentially risky methods: TRACE COPY PROPFIND SEARCH LOCK UNLOCK DELETE PUT MOVE MKCOL PROPPATCH
+|_http-server-header: Microsoft-IIS/6.0
+|_http-title: Under Construction
+| http-webdav-scan: 
+|   Server Date: Tue, 15 Sep 2020 04:13:15 GMT
+|   WebDAV type: Unknown
+|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, COPY, PROPFIND, SEARCH, LOCK, UNLOCK
+|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH
+|_  Server Type: Microsoft-IIS/6.0
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
+```
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
@@ -67,6 +93,28 @@ https://github.com/offensive-security/exploitdb
 Searchsploit is a great tool for finding available exploits for applications and operating systems. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves .
 
 It's worth mentioning that searchsploit works pretty well with nmap as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are exploits available.
+
+Example:
+```
+$ searchsploit iis 6.0
+
+------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                             |  Path
+------------------------------------------------------------------------------------------- ---------------------------------
+Microsoft IIS 4.0/5.0/6.0 - Internal IP Address/Internal Network Name Disclosure           | windows/remote/21057.txt
+Microsoft IIS 5.0/6.0 FTP Server (Windows 2000) - Remote Stack Overflow                    | windows/remote/9541.pl
+Microsoft IIS 5.0/6.0 FTP Server - Stack Exhaustion Denial of Service                      | windows/dos/9587.txt
+Microsoft IIS 6.0 - '/AUX / '.aspx' Remote Denial of Service                               | windows/dos/3965.pl
+Microsoft IIS 6.0 - ASP Stack Overflow Stack Exhaustion (Denial of Service) (MS10-065)     | windows/dos/15167.txt
+Microsoft IIS 6.0 - WebDAV 'ScStoragePathFromUrl' Remote Buffer Overflow                   | windows/remote/41738.py
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (1)                                | windows/remote/8704.txt
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (2)                                | windows/remote/8806.pl
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (Patch)                            | windows/remote/8754.patch
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (PHP)                              | windows/remote/8765.php
+Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                                   | windows/remote/19033.txt
+------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+```
 
 ## Burp suite
 https://github.com/PortSwigger/
@@ -77,3 +125,8 @@ Burp suite is a web proxy with many security auditing capabilities. It is partic
 https://github.com/OJ/gobuster
 
 It is important to check all the paths that are accessible through our web application. Sometimes we expose information due to, for example, framework misconfiguration. A file robots.txt, for example, is sometimes present to indicate which paths shouldn't be navigated to by bots. At the same time, it is an interesting file for hackers as it may
+
+## Bonus: Kali Linux
+https://www.kali.org/
+
+
