@@ -116,11 +116,6 @@ Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                        
 Shellcodes: No Results
 ```
 
-## Burp suite
-https://github.com/PortSwigger/
-
-Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to make the process of intercepting requests even smoother!
-
 ## Gobuster
 https://github.com/OJ/gobuster
 
@@ -158,6 +153,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 2020/09/15 00:34:40 Finished
 ===============================================================
 ```
+
+## Burp suite
+https://github.com/PortSwigger/
+
+Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to make the process of intercepting requests even smoother!
 
 ## Bonus: Kali Linux
 https://www.kali.org/
