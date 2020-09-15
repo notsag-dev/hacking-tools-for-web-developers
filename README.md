@@ -167,5 +167,5 @@ Metasploit is a pentesting framework created by Rapid7. It also has a command li
 ## Bonus 2: Kali Linux
 https://www.kali.org/
 
-Kali Linux is a pentesting Debian-based GNU/Linux distribution that has all the mentioned tools pre-installed and many, many others!
+Kali Linux is a pentesting Debian-based GNU/Linux distribution that has all the aforementioned tools pre-installed, and many great tools more! The examples of this post were all run using Kali.
 
