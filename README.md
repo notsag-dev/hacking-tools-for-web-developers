@@ -2,7 +2,7 @@
 
 We software engineers oftentimes neglect the security of our systems. Sometimes we do it by overestimating the capabilities of our defensive measures without even testing them in a realistic way. We use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries, all of them open source and up to date. We also issue Let's encrypt certificates in order to encrypt our traffic and use cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords and the user input validations on the front-end and on the back-end as well (of course). We think our applications are rock solid, as secure as they can be. But, are they?
 
-These are 5 tools you can easily set up and use in order audit the security of your servers and web applications just like a malicious actor would do.
+These are five tools you can easily set up and use in order audit the security of your servers and web applications just like a malicious actor would do.
 
 **Warning:** the examples listed here may be intrusive, so be sure to execute them against a local instance of the app or a test environment.
 
