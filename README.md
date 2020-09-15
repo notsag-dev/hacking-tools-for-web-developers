@@ -119,7 +119,7 @@ Shellcodes: No Results
 ## Gobuster
 https://github.com/OJ/gobuster
 
-Gobuster is a super fast tool to bruteforce paths of a web application. This is useful for detecting certain interesting files and folders that may lead to information disclosure or, even better, remote code execution. In the example below, the `common.txt` list is a well-known list of paths that can be found in the [SecLists repository](https://github.com/danielmiessler/SecLists).
+Gobuster is a widely-used tool to bruteforce paths of a web application. This is useful for detecting certain interesting files and folders that may lead to information disclosure or, even better, remote code execution. In the example below, the `common.txt` list of paths is used. It that can be found in the [SecLists repository](https://github.com/danielmiessler/SecLists).
 
 Example:
 ```
