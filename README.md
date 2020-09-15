@@ -162,4 +162,5 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ## Bonus: Kali Linux
 https://www.kali.org/
 
+Kali Linux is a pentesting Debian-based GNU/Linux distribution that has all the mentioned tools pre-installed and many, many others!
 
