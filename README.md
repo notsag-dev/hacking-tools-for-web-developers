@@ -123,7 +123,7 @@ It is important to check all the paths that are accessible through our web appli
 
 Example:
 ```
-gobuster dir -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt --output gobuster.txt --url 10.10.10.14
+gobuster dir -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt --url 10.10.10.14
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
