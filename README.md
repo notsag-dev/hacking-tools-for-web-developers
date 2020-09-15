@@ -124,7 +124,40 @@ Burp suite is a web proxy with many security auditing capabilities. It is partic
 ## Gobuster
 https://github.com/OJ/gobuster
 
-It is important to check all the paths that are accessible through our web application. Sometimes we expose information due to, for example, framework misconfiguration. A file robots.txt, for example, is sometimes present to indicate which paths shouldn't be navigated to by bots. At the same time, it is an interesting file for hackers as it may
+It is important to check all the paths that are accessible through our web application. Sometimes we expose information due to, for example, framework misconfiguration.
+
+Example:
+```
+gobuster dir -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt --output gobuster.txt --url 10.10.10.14
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://10.10.10.14
+[+] Threads:        10
+[+] Wordlist:       /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Timeout:        10s
+===============================================================
+2020/09/15 00:33:16 Starting gobuster
+===============================================================
+/Images (Status: 301)
+/_private (Status: 403)
+/_vti_bin (Status: 301)
+/_vti_bin/_vti_adm/admin.dll (Status: 200)
+/_vti_bin/shtml.dll (Status: 200)
+/_vti_cnf (Status: 403)
+/_vti_log (Status: 403)
+/_vti_pvt (Status: 403)
+/_vti_txt (Status: 403)
+/_vti_bin/_vti_aut/author.dll (Status: 200)
+/aspnet_client (Status: 403)
+/images (Status: 301)
+===============================================================
+2020/09/15 00:34:40 Finished
+===============================================================
+```
 
 ## Bonus: Kali Linux
 https://www.kali.org/
