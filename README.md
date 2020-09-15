@@ -2,7 +2,7 @@
 
 We use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries, all of them open source and up to date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords and the user input validations on the front-end and on the back-end as well (of course). We think our applications are rock solid, as secure as they can be. But, are they?
 
-In this post I'm going to walk you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
+In this post I'm going to be walking you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
 
 **Assumptions**: I assume you have basic command line understanding and are able to install these tools by yourselves. It should not represent big issues as I am listing easy-to-install tools that can be tested with a one-liner. 
 
@@ -11,7 +11,7 @@ In this post I'm going to walk you through five tools you can easily set up and 
 ## Nikto
 https://github.com/sullo/nikto
 
-Nikto is a fantastic web scanner that scans web servers/apps for detecting server misconfiguration or vulnerability to attacks such as cross-site scripting or clickjacking, among many others. It is beginner friendly and that's why it is a great option to get started with. Additionally, the solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses, which may be a sweet quick-win for your team.
+Nikto is a fantastic web scanner that scans web servers/apps for detecting server misconfiguration or vulnerability to attacks, such as cross-site scripting or clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses, which may be a sweet quick-win for your team.
 
 Example:
 
@@ -58,10 +58,12 @@ $ nikto -host 10.10.10.14
 + End Time:           2020-09-14 21:18:51 (GMT-4) (1421 seconds)
 ```
 
+With a pretty simple and standard execution, a lot of information about the web app was retrieved. On the top, information about the web server and development tools, then the missing headers that would allow some kinds of attacks and, finally, warnings about available HTTP methods and listing of interesting files and directories. Note also the OSVDB references, these are vulnerabilities that are part of a database that can be investigated further and, why not, used to do an exploitation POC to share with your team.
+
 ## Nmap
 https://github.com/nmap/nmap
 
-I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network scanner around, and it still holds that position today. It has many capabilities such as port scanning, service and OS detection, vulnerabilities analysis, and more.
+I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerabilities analysis, and more!
 
 Example:
 ```
@@ -88,6 +90,10 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
 ```
+
+As you can see, nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive and includes OS detection, service versions detection and runs a default set of scripts. For less intrusive attacks, use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
+
+Tip: if nmap indicates your host is down, it may be because it does not reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
