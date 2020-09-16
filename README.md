@@ -91,16 +91,16 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
 ```
 
-As you can see, when executed this way nmap retrieves information about services running on a certain host or group of hosts (yes, you can also scan several hosts at the same time). The `-A` flag means the scan is aggressive and includes OS detection, service versions detection and the execution of the default set of scripts. For less intrusive attacks, use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
+As you can see, when executed this way nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive and includes OS detection, service versions detection and the execution of the default set of scripts. For less intrusive attacks, use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
 
 Tip: if nmap indicates your host is down, it may be because it does not reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
 
-Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to proactively defend from those attacks.
+Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to proactively defend our systems.
 
-It's worth mentioning that searchsploit works pretty well with nmap and other scanners, as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are exploits available.
+It's worth mentioning that searchsploit works pretty well with nmap and other scanners, as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are any exploits available for them.
 
 Example:
 ```
@@ -126,7 +126,9 @@ Shellcodes: No Results
 
 This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nikto and Nmap. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of actual exploit scripts or files with more detailed information about them.
 
-Warning: Do not just execute exploits if you are not sure about what they do. Open the exploit file and see what it does before running it.
+Tip: To retrieve the exact location of the exploits scripts or info files in your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
+
+Warning: Do not just execute exploits if you are not sure about what they do, some of them are harmful. Open the exploit file and see what it does before running it.
 
 ## Gobuster
 https://github.com/OJ/gobuster
