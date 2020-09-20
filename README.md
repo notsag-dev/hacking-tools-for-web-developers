@@ -173,7 +173,7 @@ __Warning:__ Do not just execute exploits if you are not sure about what they do
 ## Metasploit
 https://github.com/rapid7/metasploit-framework
 
-Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals (and also by black-hat hackers) and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
+Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals and also by black-hat hackers, and it simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
 
 This example will a bit different to the other ones as we will use the _msfconsole_, the Metasploit console, to gain access to the server and run actual shell commands on it. This can be done in less than two minutes by following a few simple steps:
 1) Search for IIS-related Metasploit modules (similar to searchsploit)
