@@ -168,7 +168,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-As you can notice, on this occasion we get which paths were found and which were the HTTP status code received for each one of them.
+As you can notice, on this occasion we get which paths were found and which were the HTTP status codes received for them.
 
 ## Metasploit
 https://github.com/rapid7/metasploit-framework
