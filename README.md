@@ -1,6 +1,6 @@
 # Hacking tools for web developers
 
-We, web developers, use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries; and ensure all of them are up-to-date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords, and the user input validations on the front-end and on the back-end as well (of course). And a lot more besides, and many many more security measures. We think our applications are rock solid, as secure as they can be. But, are they?
+We, web developers, use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries; and ensure all of them are up-to-date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords, and a lot more besides, and many many more security measures. We think our applications are rock solid, as secure as they can be. But, are they?
 
 In this post I'm going to be walking you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
 
