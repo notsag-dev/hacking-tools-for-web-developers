@@ -4,9 +4,44 @@ We, web developers, use cutting-edge web servers, well-known authentication fram
 
 In this post I'm going to be walking you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
 
-**Assumptions**: I assume you have basic command line understanding and are able to install these tools by yourselves. It should not represent big issues as I am listing easy-to-install tools that can be tested with a one-liner. 
+**Assumptions**: I assume you have basic command line understanding and are able to install these tools by yourselves.
 
 **Warning:** Some of the listed examples are very intrusive. Be sure to execute them against a local instance of the application or a test environment.
+
+## Nmap
+https://github.com/nmap/nmap
+
+I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and more!
+
+Example:
+```
+$ nmap -A 10.10.10.14
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-15 00:06 EDT
+Nmap scan report for 10.10.10.14 (10.10.10.14)
+Host is up (0.16s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Microsoft IIS httpd 6.0
+| http-methods: 
+|_  Potentially risky methods: TRACE COPY PROPFIND SEARCH LOCK UNLOCK DELETE PUT MOVE MKCOL PROPPATCH
+|_http-server-header: Microsoft-IIS/6.0
+|_http-title: Under Construction
+| http-webdav-scan: 
+|   Server Date: Tue, 15 Sep 2020 04:13:15 GMT
+|   WebDAV type: Unknown
+|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, COPY, PROPFIND, SEARCH, LOCK, UNLOCK
+|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH
+|_  Server Type: Microsoft-IIS/6.0
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
+```
+
+As you can see, when executed this way nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive and includes OS detection, service versions detection and the execution of the default set of scripts. For less intrusive attacks use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
+
+Tip: If nmap indicates the host is down, it may be because it does not reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
 ## Nikto
 https://github.com/sullo/nikto
@@ -59,41 +94,6 @@ $ nikto -host 10.10.10.14
 ```
 
 With a pretty simple command execution a lot of information about the web server was retrieved. On the top, information about the web server technologies and the development tools. Then, headers information including missing headers that would allow some kinds of attacks. And finally, warnings about available HTTP methods and interesting files and directories. Note also the OSVDB references, these are known vulnerabilities that are part of a database and their ids may help find further information.
-
-## Nmap
-https://github.com/nmap/nmap
-
-I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and more!
-
-Example:
-```
-$ nmap -A 10.10.10.14
-
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-15 00:06 EDT
-Nmap scan report for 10.10.10.14 (10.10.10.14)
-Host is up (0.16s latency).
-Not shown: 999 filtered ports
-PORT   STATE SERVICE VERSION
-80/tcp open  http    Microsoft IIS httpd 6.0
-| http-methods: 
-|_  Potentially risky methods: TRACE COPY PROPFIND SEARCH LOCK UNLOCK DELETE PUT MOVE MKCOL PROPPATCH
-|_http-server-header: Microsoft-IIS/6.0
-|_http-title: Under Construction
-| http-webdav-scan: 
-|   Server Date: Tue, 15 Sep 2020 04:13:15 GMT
-|   WebDAV type: Unknown
-|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, COPY, PROPFIND, SEARCH, LOCK, UNLOCK
-|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH
-|_  Server Type: Microsoft-IIS/6.0
-Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
-```
-
-As you can see, when executed this way nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive and includes OS detection, service versions detection and the execution of the default set of scripts. For less intrusive attacks use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
-
-Tip: If nmap indicates the host is down, it may be because it does not reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
