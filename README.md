@@ -46,7 +46,7 @@ Tip: If nmap indicates the host is down, it may be because the server it is not 
 ## Nikto
 https://github.com/sullo/nikto
 
-Nikto is a fantastic web scanner that examins web servers to find software misconfigurations, default/insecure paths available, and vulnerability to attacks such as cross-site scripting or clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses, which may be a sweet quick win for your team.
+Nikto is a fantastic web scanner that examins web servers to find software misconfigurations, default/insecure paths available, and vulnerability to attacks such as cross-site scripting or clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses which may be a sweet quick win for your team.
 
 Example:
 
