@@ -133,7 +133,7 @@ Warning: Do not just execute exploits if you are not sure about what they do, so
 ## Gobuster
 https://github.com/OJ/gobuster
 
-Gobuster is a widely-used tool to bruteforce paths of a web application. This is useful for detecting certain interesting files and folders that may lead to information disclosure or, even worse, remote code execution. In the example below the `common.txt` list of paths is used, which can be found as part of the [SecLists repository](https://github.com/danielmiessler/SecLists).
+Gobuster is a widely-used tool to bruteforce paths of a web application. It is useful for detecting certain interesting files and folders that may lead to information disclosure or, even worse, remote code execution. In the example below the `common.txt` list of paths is used, which can be found as part of the [SecLists repository](https://github.com/danielmiessler/SecLists).
 
 Example:
 ```
