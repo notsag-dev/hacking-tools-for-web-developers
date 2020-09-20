@@ -11,7 +11,7 @@ In this post I'm going to be walking you through five tools you can easily set u
 ## Nmap
 https://github.com/nmap/nmap
 
-I discovered this great tool around 12 years ago. I remember it was mind-blowing to me that Ubuntu came with it installed out-of-the-box given the nature of the app! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and more!
+I discovered this great tool around 12 years ago. I remember it was mind-blowing to me that Ubuntu came with it installed out-of-the-box given the nature of the app! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and much more!
 
 Example:
 ```
@@ -46,7 +46,7 @@ Tip: If nmap indicates the host is down, it may be because the server it is not 
 ## Nikto
 https://github.com/sullo/nikto
 
-Nikto is a fantastic web scanner that examins web servers to find software misconfigurations, default/insecure paths available, and vulnerability to attacks such as cross-site scripting or clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses which may be a sweet quick win for your team.
+Nikto is a fantastic web scanner that examins web servers to find software misconfigurations, default/insecure paths available, and vulnerability to attacks such as cross-site scripting and clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses which may be a neat quick win for your team.
 
 Example:
 
