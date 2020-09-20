@@ -2,16 +2,20 @@
 
 We, web developers, use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries; and ensure all of them are up-to-date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords, and a lot more besides, and many many more security measures. We think our applications are rock solid, as secure as they can be. But, are they?
 
+Well, not really...
+
 In this post I'm going to be walking you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
 
 **Assumptions**: I assume you have basic command line understanding and are able to install these tools by yourselves.
 
 **Warning:** Some of the listed examples are very intrusive. Be sure to execute them against a local instance of the application or a test environment.
 
+**About the examples:** Even though the examples presented here are straightforward and self-contained, the order in which the tools are listed here is relevant, and if you are interested in executing an initial security assessment of your system would be enough to list and explain the results of these examples.
+
 ## Nmap
 https://github.com/nmap/nmap
 
-I discovered this great tool around 12 years ago, and it was mind-blowing to me that Ubuntu came with it installed out-of-the-box! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and more!
+I discovered this great tool around 12 years ago. I remember it was mind-blowing to me that Ubuntu came with it installed out-of-the-box given the nature of the app! At that point it was the most popular network mapping tool around, and incredibly it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and more!
 
 Example:
 ```
@@ -39,9 +43,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
 ```
 
-As you can see, when executed this way nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive and includes OS detection, service versions detection and the execution of the default set of scripts. For less intrusive attacks use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
+When executed this way nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive which includes OS detection, service versions detection, and the execution of the default set of scripts. For less intrusive attacks use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
 
-Tip: If nmap indicates the host is down, it may be because it does not reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
+Tip: If nmap indicates the host is down, it may be because the server it is not configured to reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
 ## Nikto
 https://github.com/sullo/nikto
@@ -95,41 +99,6 @@ $ nikto -host 10.10.10.14
 
 With a pretty simple command execution a lot of information about the web server was retrieved. On the top, information about the web server technologies and the development tools. Then, headers information including missing headers that would allow some kinds of attacks. And finally, warnings about available HTTP methods and interesting files and directories. Note also the OSVDB references, these are known vulnerabilities that are part of a database and their ids may help find further information.
 
-## Searchsploit
-https://github.com/offensive-security/exploitdb
-
-Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to proactively defend our systems.
-
-It's worth mentioning that searchsploit works pretty well with nmap and other scanners, as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are any exploits available for them.
-
-Example:
-```
-$ searchsploit iis 6.0
-
-------------------------------------------------------------------------------------------- ---------------------------------
- Exploit Title                                                                             |  Path
-------------------------------------------------------------------------------------------- ---------------------------------
-Microsoft IIS 4.0/5.0/6.0 - Internal IP Address/Internal Network Name Disclosure           | windows/remote/21057.txt
-Microsoft IIS 5.0/6.0 FTP Server (Windows 2000) - Remote Stack Overflow                    | windows/remote/9541.pl
-Microsoft IIS 5.0/6.0 FTP Server - Stack Exhaustion Denial of Service                      | windows/dos/9587.txt
-Microsoft IIS 6.0 - '/AUX / '.aspx' Remote Denial of Service                               | windows/dos/3965.pl
-Microsoft IIS 6.0 - ASP Stack Overflow Stack Exhaustion (Denial of Service) (MS10-065)     | windows/dos/15167.txt
-Microsoft IIS 6.0 - WebDAV 'ScStoragePathFromUrl' Remote Buffer Overflow                   | windows/remote/41738.py
-Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (1)                                | windows/remote/8704.txt
-Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (2)                                | windows/remote/8806.pl
-Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (Patch)                            | windows/remote/8754.patch
-Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (PHP)                              | windows/remote/8765.php
-Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                                   | windows/remote/19033.txt
-------------------------------------------------------------------------------------------- ---------------------------------
-Shellcodes: No Results
-```
-
-This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nikto and Nmap. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of actual exploit scripts or files with more detailed information about them.
-
-Tip: To retrieve the exact location of the exploits scripts or info files in your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
-
-Warning: Do not just execute exploits if you are not sure about what they do, some of them are harmful. Open the exploit file and see what it does before running it.
-
 ## Gobuster
 https://github.com/OJ/gobuster
 
@@ -169,6 +138,41 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ```
 
 As you can notice, on this occasion we get which paths were found and which were the HTTP status codes received for them.
+
+## Searchsploit
+https://github.com/offensive-security/exploitdb
+
+Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to proactively defend our systems.
+
+It's worth mentioning that searchsploit works pretty well with nmap and other scanners, as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are any exploits available for them.
+
+Example:
+```
+$ searchsploit iis 6.0
+
+------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                             |  Path
+------------------------------------------------------------------------------------------- ---------------------------------
+Microsoft IIS 4.0/5.0/6.0 - Internal IP Address/Internal Network Name Disclosure           | windows/remote/21057.txt
+Microsoft IIS 5.0/6.0 FTP Server (Windows 2000) - Remote Stack Overflow                    | windows/remote/9541.pl
+Microsoft IIS 5.0/6.0 FTP Server - Stack Exhaustion Denial of Service                      | windows/dos/9587.txt
+Microsoft IIS 6.0 - '/AUX / '.aspx' Remote Denial of Service                               | windows/dos/3965.pl
+Microsoft IIS 6.0 - ASP Stack Overflow Stack Exhaustion (Denial of Service) (MS10-065)     | windows/dos/15167.txt
+Microsoft IIS 6.0 - WebDAV 'ScStoragePathFromUrl' Remote Buffer Overflow                   | windows/remote/41738.py
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (1)                                | windows/remote/8704.txt
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (2)                                | windows/remote/8806.pl
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (Patch)                            | windows/remote/8754.patch
+Microsoft IIS 6.0 - WebDAV Remote Authentication Bypass (PHP)                              | windows/remote/8765.php
+Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                                   | windows/remote/19033.txt
+------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+```
+
+This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nikto and Nmap. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of actual exploit scripts or files with more detailed information about them.
+
+Tip: To retrieve the exact location of the exploits scripts or info files in your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
+
+Warning: Do not just execute exploits if you are not sure about what they do, some of them are harmful. Open the exploit file and see what it does before running it.
 
 ## Metasploit
 https://github.com/rapid7/metasploit-framework
