@@ -175,10 +175,9 @@ https://github.com/rapid7/metasploit-framework
 
 Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals (and also by black-hat hackers) and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
 
-This example will a bit different to the other ones, as we will use the _msfconsole_ (Metasploit cli) to gain access to the server and run actual shell commands on it. This can be done in less than two minutes by following a few simple steps:
+This example will a bit different to the other ones as we will use the _msfconsole_, the Metasploit console, to gain access to the server and run actual shell commands on it. This can be done in less than two minutes by following a few simple steps:
 1) Search for IIS-related Metasploit modules (similar to searchsploit)
-2) Select one of them
-3) Set victim IP on the module
+2) Select an exploit and set its options
 4) Run exploit and gain access to the system
 
 ### Search for IIS-related Metasploit modules
@@ -227,11 +226,10 @@ Matching Modules
 It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, please take a moment to read through the results. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and is also know as "Exploding Can". Note that when successful, the execution of this exploit leads to remote code execution.
 
 ### Select an exploit and set its options
-The _use_ command will be used to select the exploit from the list, and _show options_ to get the options that have to be set in order to execute the exploit:
+The _use_ command will be used to select the exploit to be executed, and _show options_ to get the options that have to be set in order to execute it:
 ```
 msf5 > use exploit/windows/iis/iis_webdav_scstoragepathfromurl
 
-### Set the module's options
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > show options
 
 Module options (exploit/windows/iis/iis_webdav_scstoragepathfromurl):
@@ -264,13 +262,13 @@ Exploit target:
    0   Microsoft Windows Server 2003 R2 SP2 x86
 ```
 
-The only mandatory option that has is still to be set is __RHOSTS__, and corresponds to the target (victim) host. So let's set it to the IP address of the same machine we scanned with the previous tools:
+The only mandatory option that has is still to be set is __RHOSTS__, and corresponds to the target host (victim). So let's set it to the IP address of the same machine we scanned with the previous tools:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.14
 RHOSTS => 10.10.10.14
 ```
 
-### Run exploit and gain access
+### Run exploit and gain access to the system
 A really interesting feature of Metasploit modules is that some of them have a _check_ function to verify if the target host is vulnerable:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
