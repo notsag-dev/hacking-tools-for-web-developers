@@ -6,11 +6,7 @@ Well, not really...
 
 In this post I'm going to be walking you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
 
-**Assumptions**: I assume you have basic command line understanding and are able to install these tools by yourselves.
-
 **Warning:** Some of the listed examples are very intrusive. Be sure to execute them against a local instance of the application or a test environment.
-
-**About the examples:** Even though the examples presented here are straightforward and self-contained, the order in which the tools are listed here is relevant, and if you are interested in executing an initial security assessment of your system would be enough to list and explain the results of these examples.
 
 ## Nmap
 https://github.com/nmap/nmap
