@@ -140,7 +140,7 @@ https://github.com/offensive-security/exploitdb
 
 Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to proactively defend our systems.
 
-It is worth mentioning that searchsploit works pretty well with Nmap, Nikto and other scanners, as after discovering what services are running on a certain server they can be searched by version number on searchsploit to see if there are any exploits available for them.
+It is worth mentioning that searchsploit works pretty well with Nmap, Nikto and other scanners, as after discovering what services are running on a certain server they can be searched by version number on searchsploit to see if there are any exploits available.
 
 Example:
 ```
