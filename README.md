@@ -173,9 +173,15 @@ As you can notice, on this occasion we get which paths were found and which were
 ## Metasploit
 https://github.com/rapid7/metasploit-framework
 
-Metasploit is an exploitation framework created by Rapid7. It is widely used and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
+Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals (and also black-hat hackers) and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
 
-The example in this case will a bit different to the other ones, as instead of just getting information about the system we will compromise it. The Metasploit command-line interface will be used on this occasion: _msfconsole_. First, let's use the _search_ command to search for modules that contain the word _iis_:
+The example in this case will a bit different to the other ones, as instead of just getting information about the system it will explain how to compromise it in a few simple steps:
+1) Search for exploit
+2) Select one of them
+3) List its options and set them (namely set victim IP)
+4) Run expoit and get access to the system
+
+The Metasploit command-line interface will be used on this occasion: _msfconsole_. First, let's use the _search_ command to search for modules that contain the word _iis_:
 ```
 msf5 > search iis
 
