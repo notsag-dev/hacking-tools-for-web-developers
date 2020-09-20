@@ -168,7 +168,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-As you can notice, in this occasion we get what paths were found and what were the HTTP status code received for each one of them.
+As you can notice, on this occasion we get which paths were found and which were the HTTP status code received for each one of them.
 
 ## wfuzz
 > From Wikipedia: Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
