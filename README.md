@@ -1,6 +1,6 @@
 # Hacking tools for web developers
 
-We use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries, all of them open source and up to date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords and the user input validations on the front-end and on the back-end as well (of course). We think our applications are rock solid, as secure as they can be. But, are they?
+We, web developers, use cutting-edge web servers, well-known authentication frameworks and robust encryption libraries; and ensure all of them are up-to-date. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords, and the user input validations on the front-end and on the back-end as well (of course). And a lot more besides, and many many more security measures. We think our applications are rock solid, as secure as they can be. But, are they?
 
 In this post I'm going to be walking you through five tools you can easily set up and run in order to check the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
 
@@ -170,15 +170,15 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 As you can notice, in this occasion we get what paths were found and what were the HTTP status code received for each one of them.
 
-## Burp suite
-https://github.com/PortSwigger/
+## wfuzz
+> Wikipedia: Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
+I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows you to insert values from a list in specific places of a HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication.
 
-Burp suite is a web proxy with many security auditing capabilities. It is particularly good for bypassing front-end validations by intercepting and modifying requests after the validations are executed, how cool is that?! Use the Foxy Proxy extension on your browser along with Burp to turn interception on and off much faster!
 
 ## Bonus 1: Metasploit
 https://github.com/rapid7/metasploit-framework
 
-Metasploit is a pentesting framework created by Rapid7. It also has a command line interface called `msfconsole` which is the most common way of using it. The only reason I did not include metasploit in the main list is because it exceeds a bit the limits of this post as it may require a bit more effort to be installed and also it deserves a more detailed explanation.
+Metasploit is a pentesting framework created by Rapid7. It also has a command line interface called `msfconsole` which is the most common way of using it. The only reason I did not include metasploit in the main list is because it exceeds a bit the limits of this post as it may require a bit more effort to be installed when not using Kali Linux so it deserves a more detailed explanation.
 
 ## Bonus 2: Kali Linux
 https://www.kali.org/
