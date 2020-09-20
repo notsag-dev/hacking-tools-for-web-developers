@@ -175,7 +175,7 @@ https://github.com/rapid7/metasploit-framework
 
 Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals (and also by black-hat hackers) and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
 
-The example in this case will a bit different to the other ones, as instead of just getting information about the system it will explain how to compromise it in a few simple steps:
+This example will a bit different to the other ones, as we will use the _msfconsole_ (Metasploit cli) to gain access to the server and run actual shell commands on it. This will take just a few simple steps (and no more than 2 minutes):
 1) Search for IIS-related Metasploit modules (similar to searchsploit)
 2) Select one of them
 3) Set victim IP on the module
@@ -223,7 +223,7 @@ Matching Modules
    30  exploit/windows/ssl/ms04_011_pct                                 2004-04-13       average    No     MS04-011 Microsoft Private Communications Transport Overflow
 ```
 
-It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used, which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and is also know as "Exploding Can".
+It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and is also know as "Exploding Can". Note that when successful, the execution of this exploit leads to remote code execution.
 
 So now the _use_ command will be used to select the exploit from the list, and _show options_ to get the options that have to be set in order to execute the exploit:
 ```
