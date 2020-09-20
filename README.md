@@ -58,7 +58,7 @@ $ nikto -host 10.10.10.14
 + End Time:           2020-09-14 21:18:51 (GMT-4) (1421 seconds)
 ```
 
-With a pretty simple and standard execution a lot of information about the web app was retrieved. On the top, information about the web server and development tools, then the missing headers that would allow some kinds of attacks and, finally, warnings about available HTTP methods and listing of interesting files and directories. Note also the OSVDB references, these are vulnerabilities that are part of a database that can be investigated further and, why not, used to do an exploitation POC to share with your team.
+With a pretty simple command execution a lot of information about the web server was retrieved. On the top, information about the web server technologies and the development tools. Then, headers information including missing headers that would allow some kinds of attacks. And finally, warnings about available HTTP methods and interesting files and directories. Note also the OSVDB references, these are known vulnerabilities that are part of a database and their ids may help find further information.
 
 ## Nmap
 https://github.com/nmap/nmap
@@ -173,7 +173,7 @@ As you can notice, on this occasion we get which paths were found and which were
 ## wfuzz
 > From Wikipedia: Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
 
-I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows to insert values from a dictionary in specific places of an HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication credentials with it! When testing an API this is golden, before discovering fuzzing tools I would write an script for doing this kind of stuff manually while with wfuzz is ridiculously easy!
+I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows to insert values from a dictionary in specific places of an HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication credentials with it! When testing an API this is golden, before discovering fuzzing tools I would write an script for doing this kind of stuff manually, while with wfuzz is ridiculously easy!
 
 Example:
 ```
