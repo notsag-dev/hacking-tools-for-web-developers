@@ -298,7 +298,7 @@ Meterpreter     : x86/windows
 ```
 
 ## Summary
-On this post we went through a pretty standard security assessment that is really easy to execute by anybody working as a web engineer. What we did:
+On this post we went through a pretty standard security assessment that is really easy to execute by any web engineer. What we did:
 1) Run an __nmap__ scan to discover services running on a server.
 2) Run a __nikto__ scan to evaluate the security of the web server running on port 80 detected by nmap.
 3) Run a __gobuster__ scan in order to list interesting files and folders of the web server.
