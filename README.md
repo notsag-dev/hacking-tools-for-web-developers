@@ -176,13 +176,7 @@ As you can notice, in this occasion we get what paths were found and what were t
 I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows you to insert values from a list in specific places of an HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication.
 
 
-## Bonus 1: Metasploit
+## Bonus: Metasploit
 https://github.com/rapid7/metasploit-framework
 
-Metasploit is a pentesting framework created by Rapid7. It also has a command line interface called `msfconsole` which is the most common way of using it. The only reason I did not include metasploit in the main list is because it exceeds a bit the limits of this post as it may require a bit more effort to be installed when not using Kali Linux so it deserves a more detailed explanation.
-
-## Bonus 2: Kali Linux
-https://www.kali.org/
-
-Kali Linux is a pentesting Debian-based GNU/Linux distribution that has all the aforementioned tools pre-installed, and many great tools more! The examples of this post were all run using Kali.
-
+Metasploit is a pentesting framework created by Rapid7. It is widely used and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
