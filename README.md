@@ -93,12 +93,12 @@ $ nikto -host 10.10.10.14
 + End Time:           2020-09-14 21:18:51 (GMT-4) (1421 seconds)
 ```
 
-With a pretty simple command execution a lot of information about the web server was retrieved. On the top, information about the web server technologies and the development tools. Then, headers information including missing headers that would allow some kinds of attacks. And finally, warnings about available HTTP methods and interesting files and directories. Note also the OSVDB references, these are known vulnerabilities that are part of a database and their ids may help find further information.
+With a pretty simple command execution a lot of information about the web server was retrieved. On the top, information about the web server technologies and the development tools. Then, headers information including missing headers that would allow some kinds of attacks. And finally, warnings about available HTTP methods and interesting files and directories. Note also the OSVDB references, these are known vulnerabilities that are part of a database and their ids may help find further information about them (including exploits).
 
 ## Gobuster
 https://github.com/OJ/gobuster
 
-Gobuster is a widely-used tool to bruteforce paths of a web application. It is useful for detecting certain interesting files and folders that may lead to information disclosure or, even worse, remote code execution. In the example below the `common.txt` list of paths is used, which can be found as part of the [SecLists repository](https://github.com/danielmiessler/SecLists).
+Gobuster is a widely-used tool to bruteforce paths of a web application. It is useful for detecting interesting files and folders that may lead to information disclosure or, even worse, remote code execution. In the example below the `common.txt` list of paths is used, which can be found as part of the [SecLists repository](https://github.com/danielmiessler/SecLists).
 
 Example:
 ```
@@ -133,14 +133,14 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-As you can notice, on this occasion we get which paths were found and which were the HTTP status codes received for them.
+The results show which paths were found and their corresponding HTTP status codes.
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
 
 Searchsploit is a great tool for finding available exploits for applications and kernels. If a vulnerable version of an application is being executed on your server, it may be possible for a malicious actor to exploit it to gain access to your data or perform other types of attacks. On the other hand, being able to execute these verifications ourselves is a great skill to have to proactively defend our systems.
 
-It's worth mentioning that searchsploit works pretty well with nmap and other scanners, as after discovering what services are running on a certain server we can search them by version number on searchsploit to see if there are any exploits available for them.
+It is worth mentioning that searchsploit works pretty well with Nmap, Nikto and other scanners, as after discovering what services are running on a certain server they can be searched by version number on searchsploit to see if there are any exploits available for them.
 
 Example:
 ```
@@ -164,11 +164,11 @@ Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                        
 Shellcodes: No Results
 ```
 
-This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nikto and Nmap. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of actual exploit scripts or files with more detailed information about them.
+This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nmap and Nikto. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of exploit scripts or other files with relevant information.
 
-Tip: To retrieve the exact location of the exploits scripts or info files in your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
+Tip: To retrieve the exact location of the exploits or info files on your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
 
-Warning: Do not just execute exploits if you are not sure about what they do, some of them are harmful. Open the exploit file and see what it does before running it.
+__Warning:__ Do not just execute exploits if you are not sure about what they do, some of them are harmful. Open the exploit file and see what it does before running it.
 
 ## Metasploit
 https://github.com/rapid7/metasploit-framework
