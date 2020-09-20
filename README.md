@@ -170,16 +170,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 As you can notice, on this occasion we get which paths were found and which were the HTTP status code received for each one of them.
 
-## wfuzz
-> From Wikipedia: Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
-
-I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows to insert values from a dictionary in specific places of an HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication credentials with it! When testing an API this is golden, before discovering fuzzing tools I would write an script for doing this kind of stuff manually, while with wfuzz is ridiculously easy!
-
-Example:
-```
-```
-
-## Bonus: Metasploit
+## Metasploit
 https://github.com/rapid7/metasploit-framework
 
 Metasploit is a pentesting framework created by Rapid7. It is widely used and simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting and post-exploiting a system. I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) video series as it is a great learning resource for those learning Metasploit!
+
+The example is 
