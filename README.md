@@ -297,4 +297,10 @@ Logged On Users : 2
 Meterpreter     : x86/windows
 ```
 
-
+## Summary
+On this post we went through a pretty standard security assessment that is really easy to execute by anybody working as a web engineer. What we did:
+1) Run an __nmap__ scan to discover services running on a server.
+2) Run a __nikto__ scan to evaluate the security of the web server running on port 80 detected by nmap.
+3) Run a __gobuster__ scan in order to list interesting files and folders of the web server.
+4) Use __searchsploit__ to determine if there are existing exploits for the technologies listed by nmap, nikto and gobuster.
+5) Gain access to the system using the __metasploit__ framework.
