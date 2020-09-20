@@ -171,10 +171,13 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 As you can notice, in this occasion we get what paths were found and what were the HTTP status code received for each one of them.
 
 ## wfuzz
-> Wikipedia: Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
+> From Wikipedia: Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
 
-I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows you to insert values from a list in specific places of an HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication.
+I didn't know how much I needed fuzzing tools until I discovered them. _wfuzz_ allows to insert values from a dictionary in specific places of an HTTP request. This means it is possible to fuzz cookies, headers, POST bodies, and even authentication credentials with it! When testing an API this is golden, before discovering fuzzing tools I would write an script for doing this kind of stuff manually while with wfuzz is ridiculously easy!
 
+Example:
+```
+```
 
 ## Bonus: Metasploit
 https://github.com/rapid7/metasploit-framework
