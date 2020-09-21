@@ -305,7 +305,7 @@ Microsoft Windows [Version 5.2.3790]
 c:\windows\system32\inetsrv>
 ```
 
-And that's it! We got a meterpreter session that remotely controls the victim including accessing a regular shell. A next step would be to gain root access to this computer, but I will leave that one for the next time :)
+And that's it! We got a meterpreter session that remotely controls the victim machine, and we also were able to pop a regular shell on it. A next step would be to gain root access to this computer, but I will leave that one for the next time :)
 
 ## Summary
 On this post we went through a pretty standard security assessment that is really easy to execute by any web engineer. What we did:
