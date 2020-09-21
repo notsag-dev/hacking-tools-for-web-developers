@@ -136,7 +136,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 The result shows which paths were found and their corresponding HTTP status codes. Note that this information complements the already quick path discovery performed by Nikto, getting some new paths this time.
 
-So, should these paths be visible or not? First of all navigate them, see what information can be obtained from them. Then, for standard paths it will be enough some Googling (or Duckduckgoing) in order to determine if they should be publicly available or not, do your investigation!
+So, should these paths be visible or not? First of all navigate them, see what information can be obtained from them. Then, for standard paths it will be enough some Googling (or Duckduckgoing) in order to determine if they should be publicly available or not, do your investigation depending on your scan results!
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
