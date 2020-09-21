@@ -134,7 +134,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-The result shows which paths were found and their corresponding HTTP status codes. Note that this information complements the already quick path discovery performed by Nikto, getting some new paths this time. Note also that other lists can be used to bruteforce paths, do check out the SecLists repository and play around with other lists for web content discovery!
+The result shows which paths were found and their corresponding HTTP status codes. Note that this information complements the already quick path discovery performed by Nikto, getting some new paths this time.
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
