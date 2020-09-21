@@ -134,7 +134,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-The result shows which paths were found and their corresponding HTTP status codes. Note that this information complements the already quick path discovery performed by Nikto, getting some new paths this time.
+The result shows which paths were found and their corresponding HTTP status codes. Note that this information complements the already quick path discovery performed by Nikto, getting some new paths this time. For standard paths it will be enough some Googling (or Duckduckgoing) to determine if they should be publicly available or not, do your investigation!
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
