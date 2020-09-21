@@ -46,7 +46,7 @@ Tip: If nmap indicates the host is down, it may be because the server is not con
 ## Nikto
 https://github.com/sullo/nikto
 
-Nikto is a fantastic web scanner that examins web servers to find software misconfigurations, default/insecure paths available, and vulnerability to attacks such as cross-site scripting and clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses which may be a neat quick win for your team.
+Nikto is a fantastic web scanner that examines web servers to find software misconfigurations, default/insecure paths available, and vulnerability to attacks such as cross-site scripting and clickjacking, among many others. The solution for some of the vulnerabilities detected by Nikto is as simple as adding a new header to your http responses which may be a neat quick win for your team.
 
 Example:
 
@@ -135,7 +135,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 The result shows which paths were found and their corresponding HTTP status codes. Note that this information complements the already quick path discovery performed by Nikto, getting some new paths this time.
 
-So, should these paths be visible or not? First of all navigate them, see what information can be obtained from them. Then, for standard paths it will be enough some Googling (or Duckduckgoing) in order to determine if they should be publicly available or not, do your investigation depending on your scan results!
+So, should these paths be visible or not? First of all navigate them, see what information can be obtained from them. Then, for standard paths it will be enough to Googe (or Duckduckgo) a bit in order to determine if they should be publicly available or not, do your investigation depending on your scan results!
 
 ## Searchsploit
 https://github.com/offensive-security/exploitdb
@@ -166,7 +166,7 @@ Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                        
 Shellcodes: No Results
 ```
 
-This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nmap and Nikto. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of exploits and other files with relevant information.
+This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nmap and Nikto. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right column the path of exploits and other files with relevant information.
 
 Tip: To retrieve the exact location of the exploits or info files on your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
 
@@ -177,7 +177,7 @@ https://github.com/rapid7/metasploit-framework
 
 Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals and also by black-hat hackers, and it simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. When it comes to learning resources about this tool, I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) and [HackerSploit's Metasploit videos](https://www.youtube.com/watch?v=8lR27r8Y_ik&list=PLBf0hzazHTGN31ZPTzBbk70bohTYT7HSm)!
 
-This example will be a little bit different to the other ones as we will use _msfconsole_, the Metasploit console, to gain access to the server and pop and actual shell on it. This can be done in less than two minutes by following a few simple steps:
+This example will be a little bit different to the other ones as we will use _msfconsole_, the Metasploit console, to gain access to the server and pop an actual shell on it. This can be done in less than two minutes by following a few simple steps:
 1) Search for IIS-related Metasploit modules (similar to searchsploit)
 2) Select an exploit and set its options
 3) Run exploit and gain access to the system
@@ -225,7 +225,7 @@ Matching Modules
    30  exploit/windows/ssl/ms04_011_pct                                 2004-04-13       average    No     MS04-011 Microsoft Private Communications Transport Overflow
 ```
 
-It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, please take a moment to read through the results. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and it is also know as "Exploding Can". Note that, when successful, the execution of this exploit leads to remote code execution.
+It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, please take a moment to read through the results. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and it is also known as "Exploding Can". Note that, when successful, the execution of this exploit leads to remote code execution.
 
 ### Select an exploit and set its options
 The `use` command will be used to select the exploit to be executed, and `show options` to get the options that have to be set in order to execute it:
