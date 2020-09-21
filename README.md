@@ -162,7 +162,7 @@ Microsoft IIS 6.0/7.5 (+ PHP) - Multiple Vulnerabilities                        
 Shellcodes: No Results
 ```
 
-This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nmap and Nikto. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of exploit scripts or other files with relevant information.
+This is the result of searching exploits for the IIS 6.0 web server that was detected before using both Nmap and Nikto. It can be appreciated that several exploits were found for this particular version of IIS, having on the left column a short description of the vulnerability, and on the right colum the path of exploits and other files with relevant information.
 
 Tip: To retrieve the exact location of the exploits or info files on your system, let's say for the first one listed which is `windows/remote/21057.txt`,  run `searchsploit -p windows/remote/21057.txt`. If `locate` is available, `locate windows/remote/21057.txt` would also work.
 
