@@ -11,6 +11,8 @@ https://github.com/nmap/nmap
 
 I discovered this great tool around 12 years ago. I remember it was mind-blowing to me that Ubuntu came with it installed out-of-the-box given the nature of the app! At that point it was the most popular network mapping tool around, and it still holds that position today. It has many capabilities such as host discovery, port scanning, service and OS detection, vulnerability analysis, and much more!
 
+It is very common to run an nmap scan (or several ones) when approaching a system to get information about the services running on it. Then, depending on the results of the scan, other more specific scans and searches may be executed.
+
 Example:
 ```
 $ nmap -A 10.10.10.14
@@ -36,8 +38,9 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 22.79 seconds
 ```
+> The `-A` flag means the scan is aggressive which includes OS detection, service versions detection, and the execution of the default set of scripts. For less intrusive attacks use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
 
-When executed this way nmap retrieves information about services running on a certain host. The `-A` flag means the scan is aggressive which includes OS detection, service versions detection, and the execution of the default set of scripts. For less intrusive attacks use `--script=safe` instead. For vulnerability detection (very useful, but more intrusive) use `--script=vuln`.
+The results show a Microsoft IIS web server running on port 80. The tools to be used from now on will be oriented to collect information about it and try to exploit it.
 
 Tip: If nmap indicates the host is down, it may be because the server it is not configured to reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
