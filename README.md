@@ -42,7 +42,7 @@ The `-A` flag means the scan is aggressive which includes OS detection, service 
 
 The results show a Windows machine running the Microsoft IIS 6.0 web server on port 80. The next steps will be oriented to collect information about the web server and try to exploit it in order to get access to the system.
 
-Tip: If nmap indicates the host is down, it may be because the server it is not configured to reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
+Tip: If nmap indicates the host is down, it may be because the server is not configured to reply to ping requests. Adding `-Pn` will launch the scan and ignore the ping check.
 
 ## Nikto
 https://github.com/sullo/nikto
