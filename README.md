@@ -308,7 +308,7 @@ c:\windows\system32\inetsrv>
 And that's it! We got a meterpreter session that remotely controls the victim machine, and we also were able to pop a regular shell on it. A next step would be to gain root access to this computer, but I will leave that one for the next time :)
 
 ## Summary
-On this post we went through a pretty standard security assessment that is really easy to execute by any web engineer. What we did:
+On this post we went through a pretty standard security assessment that any web engineer would be able to run. What we did:
 1) Run an __nmap__ scan to discover services running on a server.
 2) Run a __nikto__ scan to evaluate the security of the web server running on port 80 detected by nmap.
 3) Run a __gobuster__ scan in order to list interesting files and folders of the web server.
