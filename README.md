@@ -221,7 +221,7 @@ Matching Modules
    30  exploit/windows/ssl/ms04_011_pct                                 2004-04-13       average    No     MS04-011 Microsoft Private Communications Transport Overflow
 ```
 
-It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, please take a moment to read through the results. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and is also know as "Exploding Can". Note that when successful, the execution of this exploit leads to remote code execution.
+It is possible to recognize several exploits and scanners among the Metasploit modules available for IIS servers, please take a moment to read through the results. This time the _Microsoft IIS WebDav ScStoragePathFromUrl Overflow_ exploit will be used (search result number 15 on the list), which is related to the [CVE-2017-7269](https://www.cvedetails.com/cve/CVE-2017-7269/) vulnerability and it is also know as "Exploding Can". Note that, when successful, the execution of this exploit leads to remote code execution.
 
 ### Select an exploit and set its options
 The `use` command will be used to select the exploit to be executed, and `show options` to get the options that have to be set in order to execute it:
