@@ -173,10 +173,10 @@ https://github.com/rapid7/metasploit-framework
 
 Metasploit is an exploitation framework created by Rapid7. It is widely used by security professionals and also by black-hat hackers, and it simplifies A LOT the process of collecting information, doing a vulnerability analysis, exploiting, and post-exploiting a system. When it comes to learning resources about this tool, I cannot recommend highly enough [Hak5's Metasploit Minute](https://www.youtube.com/watch?v=TCPyoWHy4eA&list=PL7-g2-mnZwSEFhqybJFEPZYhNFqqbCe9_) and [HackerSploit's Metasploit videos](https://www.youtube.com/watch?v=8lR27r8Y_ik&list=PLBf0hzazHTGN31ZPTzBbk70bohTYT7HSm)!
 
-This example will a little bit different to the other ones as we will use _msfconsole_, the Metasploit console, to gain access to the server and run actual shell commands on it. This can be done in less than two minutes by following a few simple steps:
+This example will be a little bit different to the other ones as we will use _msfconsole_, the Metasploit console, to gain access to the server and run actual shell commands on it. This can be done in less than two minutes by following a few simple steps:
 1) Search for IIS-related Metasploit modules (similar to searchsploit)
 2) Select an exploit and set its options
-4) Run exploit and gain access to the system
+3) Run exploit and gain access to the system
 
 ### Search for IIS-related Metasploit modules
 First, let's use the _search_ command to search for modules that contain the word _iis_:
@@ -305,7 +305,7 @@ Microsoft Windows [Version 5.2.3790]
 c:\windows\system32\inetsrv>
 ```
 
-And that's it! We got a meterpreter session that can remote control the victim including accessing a regular shell on it. A next step would be to gain root access to this computer, but that will be for the next one :)
+And that's it! We got a meterpreter session that remotely controls the victim including accessing a regular shell. A next step would be to gain root access to this computer, but I will leave that one for the next time :)
 
 ## Summary
 On this post we went through a pretty standard security assessment that is really easy to execute by any web engineer. What we did:
