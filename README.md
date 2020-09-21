@@ -179,7 +179,7 @@ This example will be a little bit different to the other ones as we will use _ms
 3) Run exploit and gain access to the system
 
 ### Search for IIS-related Metasploit modules
-First, let's use the _search_ command to search for modules that contain the word _iis_:
+First, let's use the `search` command to search for modules that contain the word _iis_:
 ```
 msf5 > search iis
 
